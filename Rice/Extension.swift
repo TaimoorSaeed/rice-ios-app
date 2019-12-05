@@ -9,6 +9,8 @@
 import Foundation
 import SDWebImage
 
+
+
 extension UILabel {
     func addCharacterSpacing(kernValue: Double = 3) {
         if let labelText = text, labelText.count > 0 {
@@ -25,6 +27,20 @@ extension UIView {
         
         return Bundle.main.loadNibNamed(String(describing: T.self), owner: nil, options: nil)![0] as! T
         
+    }
+    
+}
+
+extension Double {
+    func calculateCostAfterServiceChargesApplied(value: String) {
+        
+        let serviceCost = value.stringToDouble().rounded(toPlaces: 2)
+    }
+    
+    /// Rounds the double to decimal places value
+    func rounded(toPlaces places:Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return (self * divisor).rounded() / divisor
     }
     
 }
@@ -55,6 +71,9 @@ extension String {
         
     }
     
+    func stringToDouble() -> Double {
+        return Double(self) ?? 0.0
+    }
 }
 
 func timeAgoSinceDate(_ date:Date, currentDate:Date, numericDates:Bool) -> String {
@@ -182,9 +201,39 @@ extension String {
         }
     }
     
+    func toDate() -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+        let date = dateFormatter.date(from: self)!
+        
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month, .day, .hour], from: date)
+        
+        let finalDate = calendar.date(from:components)
+        
+        return finalDate!
+    }
+    
+    
+    func toTime() -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "hh:mm"
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+        let date = dateFormatter.date(from: self)!
+        
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month, .day, .hour], from: date)
+        
+        let finalDate = calendar.date(from:components)
+        
+        return finalDate!
+    }
 }
 
 extension Date {
+    
+
     
     func toString(dateFormat format: String) -> String {
         
@@ -193,5 +242,11 @@ extension Date {
         return dateFormatter.string(from: self)
         
     }
+    
+}
+
+extension UIViewController {
+    
+
     
 }

@@ -6,7 +6,6 @@
 //  Copyright © 2019 Rice. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class User {

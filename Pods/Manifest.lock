@@ -1,4 +1,37 @@
 PODS:
+  - ActionSheetPicker-3.0 (2.3.0)
+  - BEMCheckBox (1.4.1)
+  - Braintree/Card (4.30.2):
+    - Braintree/Core
+  - Braintree/Core (4.30.2)
+  - Braintree/PaymentFlow (4.30.2):
+    - Braintree/Card
+    - Braintree/Core
+    - Braintree/PayPalOneTouch
+  - Braintree/PayPal (4.30.2):
+    - Braintree/Core
+    - Braintree/PayPalOneTouch
+  - Braintree/PayPalDataCollector (4.30.2):
+    - Braintree/Core
+    - Braintree/PayPalUtils
+  - Braintree/PayPalOneTouch (4.30.2):
+    - Braintree/Core
+    - Braintree/PayPalDataCollector
+    - Braintree/PayPalUtils
+  - Braintree/PayPalUtils (4.30.2)
+  - Braintree/UnionPay (4.30.2):
+    - Braintree/Card
+    - Braintree/Core
+  - BraintreeDropIn (7.5.0):
+    - BraintreeDropIn/DropIn (= 7.5.0)
+  - BraintreeDropIn/DropIn (7.5.0):
+    - Braintree/Card (~> 4.30)
+    - Braintree/Core (~> 4.30)
+    - Braintree/PaymentFlow (~> 4.30)
+    - Braintree/PayPal (~> 4.30)
+    - Braintree/UnionPay (~> 4.30)
+    - BraintreeDropIn/UIKit
+  - BraintreeDropIn/UIKit (7.5.0)
   - Firebase/Auth (5.20.2):
     - Firebase/CoreOnly
     - FirebaseAuth (= 5.4.2)
@@ -93,8 +126,12 @@ PODS:
   - SDWebImage (5.3.1):
     - SDWebImage/Core (= 5.3.1)
   - SDWebImage/Core (5.3.1)
+  - SwipeCellKit (2.7.1)
 
 DEPENDENCIES:
+  - ActionSheetPicker-3.0
+  - BEMCheckBox
+  - BraintreeDropIn
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -103,9 +140,14 @@ DEPENDENCIES:
   - GeoFire (~> 3.0)
   - ProgressHUD
   - SDWebImage
+  - SwipeCellKit
 
 SPEC REPOS:
-  trunk:
+  https://github.com/cocoapods/specs.git:
+    - ActionSheetPicker-3.0
+    - BEMCheckBox
+    - Braintree
+    - BraintreeDropIn
     - Firebase
     - FirebaseAnalytics
     - FirebaseAnalyticsInterop
@@ -125,8 +167,13 @@ SPEC REPOS:
     - ProgressHUD
     - Protobuf
     - SDWebImage
+    - SwipeCellKit
 
 SPEC CHECKSUMS:
+  ActionSheetPicker-3.0: eef157d75e151f255c5333d26656c7fbfe905a51
+  BEMCheckBox: 5ba6e37ade3d3657b36caecc35c8b75c6c2b1a4e
+  Braintree: 9fc21dc2ead57d104c4a0743454308e404217ec7
+  BraintreeDropIn: 15d6f53bf80bc0ae7809ab17803100c0a5448fd2
   Firebase: 0c8cf33f266410c61ab3e2265cfa412200351d9c
   FirebaseAnalytics: ece1aa57a4f43c64d53a648b5a5e05151aae947b
   FirebaseAnalyticsInterop: d48b6ab67bcf016a05e55b71fc39c61c0cb6b7f3
@@ -146,7 +193,8 @@ SPEC CHECKSUMS:
   ProgressHUD: 4e4efbaf4f5de8bd32e0c4c3b6644a90ea1a8c3e
   Protobuf: a4dc852ad69c027ca2166ed287b856697814375b
   SDWebImage: 7137d57385fb632129838c1e6ab9528a22c666cc
+  SwipeCellKit: 3972254a826da74609926daf59b08d6c72e619ea
 
-PODFILE CHECKSUM: ad56a45dbc74709eb960377c40fac6d378791e96
+PODFILE CHECKSUM: f8f1bb4473c2f7a80802df64efba1e774d2097b2
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.7.2

@@ -11,11 +11,20 @@ import FirebaseStorage
 import FirebaseDatabase
 import Firebase
 
+
+//BRAINTREE
+var SANDBOX_CLIENT_TOKEN_KEY = ""
+let BRAINTREE_PAYMENT_URL = "https://rice-test-payment.herokuapp.com/checkouts"
+let BRAINTREE_CLIENT_TOKEN_FETCH_URL = "https://rice-test-payment.herokuapp.com/checkouts/new"
+
+
 let REF_USER = "users"
 let REF_MESSAGE = "messages"
 let REF_INBOX = "inbox"
 let REF_GEO = "Geolocs"
 let REF_ACTION = "action"
+let REF_LIST = "lists"
+let REF_LIST_MATCHED = "listMatched"
 
 let URL_STORAGE_ROOT = "gs://rice-610de.appspot.com"
 let STORAGE_PROFILE = "profile"
@@ -44,9 +53,22 @@ let ERROR_EMPTY_PASSWORD = "Please enter a password"
 let ERROR_EMPTY_AGE = "Please enter the Age"
 let ERROR_EMPTY_CONTACT = "Please enter a Contact Number"
 
+
 let ERROR_EMPTY_EMAIL_RESET = "Please enter an email address for password reset"
 
+let ERROR_EMPTY_LIST_TITLE = "Please enter a title"
+let ERROR_EMPTY_LIST_START_DATE = "Please choose a start date"
+let ERROR_EMPTY_LIST_START_TIME = "Please choose a start time"
+let ERROR_EMPTY_LIST_END_DATE = "Please  choose a end date"
+let ERROR_EMPTY_LIST_END_TIME = "Please choose a end time"
+let ERROR_EMPTY_LIST_NO_PEOPLE_NEEDED = "Please enter number of people needed"
+let ERROR_EMPTY_LIST_PER_HOUR_COST = "Please enter per hour cost"
+
+
 let SUCCESS_EMAIL_RESET = "We have just sent you a password reset email. Please check your inbox and follow the instructions to reset your password"
+
+
+
 
 let IDENTIFIER_TABBAR = "TabBarVC"
 let IDENTIFIER_WELCOME = "WelcomeVC"
@@ -54,6 +76,8 @@ let IDENTIFIER_CHAT = "ChatVC"
 let IDENTIFIER_USER_AROUND = "UsersAroundViewController"
 let IDENTIFIER_DETAIL = "DetailViewController"
 let IDENTIFIER_RADAR = "RadarViewController"
+let IDENTIFIER_CURRENT_LISTING = "currentlisting"
+let IDENTIFIER_CREATE_LISTING = "CreateList"
 let IDENTIFIER_NEW_MATCH = "NewMatchTableViewController"
 
 let IDENTIFIER_CELL_USERS = "UserTableViewCell"
@@ -121,6 +145,18 @@ class Ref {
     var databaseGeo: DatabaseReference {
         
         return databaseRoot.child(REF_GEO)
+        
+    }
+    
+    var databaseList: DatabaseReference {
+        
+        return databaseRoot.child(REF_LIST)
+        
+    }
+    
+    var databaseListMatched: DatabaseReference {
+        
+        return databaseRoot.child(REF_LIST_MATCHED)
         
     }
     

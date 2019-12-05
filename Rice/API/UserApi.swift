@@ -32,7 +32,7 @@ class UserApi {
                 return
                 
             }
-            
+        
             print(authData?.user.uid)
             onSuccess()
             

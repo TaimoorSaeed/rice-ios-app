@@ -37,6 +37,11 @@ class RadarViewController: UIViewController {
  
     var genderFilter: Bool = true
     
+    
+    //R
+    var listID = ""
+    //End R
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -161,7 +166,6 @@ class RadarViewController: UIViewController {
             }
             
         }
-        
     }
     
     func checkIfMatchFor(card: Card) {
@@ -459,11 +463,9 @@ class RadarViewController: UIViewController {
                 Api.User.getUserInforSingleEvent(uid: key, onSuccess: { (user) in
                     
                     if self.users.contains(user) {
-                        
                         return
-                        
                     }
-                    
+                
                     //if user.isTemporary == nil {
                         
                       //  return
@@ -489,7 +491,6 @@ class RadarViewController: UIViewController {
                         
                     }
                     
-                    
                     //If the user is not discoverable do not show
                     if user.Discoverable == false {
                         //If the user is not discoverable do not show
@@ -500,20 +501,46 @@ class RadarViewController: UIViewController {
                     print(user.Gender)
                     print(self.genderFilter)
                     
-                    self.users.append(user)
-                    self.setupCard(user: user)
+                    //self.users.append(user)
+                    
+                    self.filterUsers(user: user)
+                    
+                    //self.setupCard(user: user)
                     print(user.username)
                     
                 })
-                
-                
             }
-            
-            
         })
         
     }
 
+    //R
+    //will only show users who have applied for a partcular listing(ONLY if logged in user is employer)
+    func filterUsers(user: User) {
+
+        Api.ListingMatched.retrive(listId: listID) { (data) in
+            
+            if data.count < 1 {
+                return
+            }
+            
+            let userID = user.uid
+            
+            let userMatched = data[0].matched?.contains(userID)//if user seiped right or matched with taht listing this will be true
+            let userSelectedAlready = data[0].selected?.contains(userID) //if user has been selected for that listing
+            
+            //removing users who didnt swipe rght on that listing or who were already accepted for that listing
+            if (userMatched == false && userSelectedAlready == true) || ((userMatched == false && userSelectedAlready == false))  {
+                print("rejcted user",userID)
+            } else {
+                print("accepted user",userID)
+                self.users.append(user)
+                self.setupCard(user: user)
+            }
+        }
+    }
+    //End R
+    
     /*
     // MARK: - Navigation
 

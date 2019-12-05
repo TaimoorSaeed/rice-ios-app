@@ -39,3 +39,29 @@ extension ForgotPasswordViewController {
     }
     
 }
+
+extension CreateListingViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text.count > 0 {
+            self.bioTextViewPlaceholder.isHidden = true
+        } else {
+            self.bioTextViewPlaceholder.isHidden = false
+        }
+    }
+    //
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.count > 0 {
+            self.bioTextViewPlaceholder.isHidden = true
+        }else {
+            self.bioTextViewPlaceholder.isHidden = false
+        }
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        if textView.text.count > 0 {
+            self.bioTextViewPlaceholder.isHidden = true
+        }else {
+            self.bioTextViewPlaceholder.isHidden = false
+        }
+    }
+}

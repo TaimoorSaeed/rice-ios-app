@@ -262,6 +262,7 @@ extension SignUpViewController {
         
         var ageToSend: Int?
         
+        
         if let age = ageTextField.text, !age.isEmpty {
             
             ageToSend = Int(age)

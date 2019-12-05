@@ -55,10 +55,11 @@ class MessagesTableViewController: UITableViewController {
         
         let storyboard = UIStoryboard(name: "Welcome", bundle: nil)
         
-        let radarVC = storyboard.instantiateViewController(withIdentifier: IDENTIFIER_RADAR) as! RadarViewController
-
+        //let radarVC = storyboard.instantiateViewController(withIdentifier: IDENTIFIER_RADAR) as! RadarViewController
         
-        self.navigationController?.pushViewController(radarVC, animated: true)
+        let currentListingVC = storyboard.instantiateViewController(withIdentifier: IDENTIFIER_CURRENT_LISTING) as! ListingViewController
+        
+        self.navigationController?.pushViewController(currentListingVC, animated: true)
         
     }
     

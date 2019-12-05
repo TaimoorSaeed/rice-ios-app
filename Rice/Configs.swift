@@ -10,6 +10,7 @@ import Foundation
 
 let fcmUrl = "https://fcm.googleapis.com/fcm/send"
 
+
 func sendRequestNotification(isMatch: Bool = false, fromUser: User, toUser: User, message: String, badge: Int) {
     
     let serverKey = "AAAATIaZ4Kk:APA91bE21_LvpIIele_Z06Sq0Q5xwrwFDw7exmbyZWKVTInIdmLc1P2kb0ShmwG23HWpU1b-SNkJ1f2PtUdT8X7vUSgOEw6_x2eDOrPnvQOcPD0cRE4RJMymHf3bB5tmWHfF_mQDu_IL"
@@ -62,3 +63,4 @@ func sendRequestNotification(isMatch: Bool = false, fromUser: User, toUser: User
     }.resume()
     
 }
+

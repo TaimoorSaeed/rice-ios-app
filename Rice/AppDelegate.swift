@@ -70,6 +70,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }
         
+        
+        Api.Payment.fetchClientToken { (status) in
+            if status {
+                print("CLIENT TOKEN FOR BRAINTREE FETCHED SUCCESSFULLYY")
+            } else {
+                print("CLIENT TOKEN FOR BRAINTREE COULDNOT BE FETCHED FAILURE")
+            }
+        }
+        
         return true
         
     }

@@ -13,6 +13,11 @@ target 'Rice' do
   pod 'Firebase/Messaging'
   pod 'ProgressHUD'
   pod 'SDWebImage'
+  pod 'BEMCheckBox'
+  #pod 'DatePickerDialog'
+  pod 'ActionSheetPicker-3.0'
+  pod 'SwipeCellKit'
+  pod 'BraintreeDropIn'
   
   use_frameworks!
   pod 'GeoFire', '~> 3.0'
